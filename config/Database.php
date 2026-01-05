@@ -2,6 +2,8 @@
 
 $LAB_NAME  = "ssh_lab";
 $LAB_IMAGE = "linux_lab";
+
+
 class Database {
     private $host = "localhost";
     private $user = "root";

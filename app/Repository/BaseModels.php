@@ -43,4 +43,36 @@ class BaseModels
         $result = $stm->fetchColumn();
         return $result;
     }
+
+    public function getReportsOwner($id){
+        $sql = "        SELECT
+            r.id            AS report_id,
+            r.issue         AS report_issue,
+            r.description   AS report_description,
+            r.cearted_at    AS report_created_at,
+
+            t.id            AS tester_id,
+            u.id            AS tester_user_id,
+            u.name          AS tester_name,
+            u.email         AS tester_email,
+
+            p.owner_id      AS owner_user_id
+
+        FROM reports AS r
+        JOIN tester AS t
+            ON t.id = r.tester_id
+        JOIN users AS u
+            ON u.id = t.id
+        JOIN project AS p
+            ON p.id = r.project_id
+
+        WHERE p.owner_id = :id
+        ORDER BY r.cearted_at DESC
+";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(":id",$id);
+        $stm->execute();
+        $result = $stm->fetchAll();
+        return $result;
+    }
 }

@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . "/../../../app/Repository/ProjectRepository.php";
+
+$ProjectRepository = new ProjectRepository();
+
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $result_project = $ProjectRepository->getAllProjectById($id);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +108,7 @@
         </div>
 
         <iframe
-          src="https://juice-shop.herokuapp.com"
+          src="<?= $result_project['project_address'] ?>"
           class="w-full h-full bg-white"
           sandbox="allow-scripts allow-forms allow-same-origin">
         </iframe>

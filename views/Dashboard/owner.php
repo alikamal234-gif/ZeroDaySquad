@@ -5,12 +5,12 @@ require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
 require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
     $ProjectRepository = new ProjectRepository();
     $RaportsRepository = new RaportsRepository();
-    
+    $BaseModels = new BaseModels();
 
     $result_project_number= $ProjectRepository->getNumberProject();
     $result_report_number= $RaportsRepository->getNumberReportById(2);
     $result_project = $ProjectRepository->getProjectById(2);
-
+    $result_report = $BaseModels->getReportsOwner(2);
 
 ?>
 
@@ -147,15 +147,15 @@ require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
       </tr>
     </thead>
     <tbody>
-
+        <?php  foreach($result_report AS $value): ?>
       <tr class="border-b border-white/5">
-        <td class="py-4">hacker01</td>
-        <td>example.com</td>
-        <td>SQL Injection</td>
+        <td class="py-4"><?= $value['tester_name'] ?></td>
+        <td><?= $value['tester_email'] ?></td>
+        <td><?= $value['report_issue'] ?></td>
         <td class="text-red-500">Critical</td>
         <td class="text-yellow-400">Pending</td>
       </tr>
-
+        <?php endforeach; ?>
     </tbody>
   </table>
 </section>
