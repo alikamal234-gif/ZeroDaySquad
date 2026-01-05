@@ -1,7 +1,18 @@
-<?php include __DIR__ . '/../layouts/header.php'; ?>
-<?php include __DIR__ . '/../layouts/sidebar.php'; ?>
+<?php
+require_once __DIR__ . '/../../app/Repository/BaseModels.php';
+require_once __DIR__ . '/../../app/Repository/UserRepository.php';
+require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
+    $BaseModels = new BaseModels();
+    $UserRepository = new UserRepository();
+    $Raports = new RaportsRepository();
+    $result_reports = $BaseModels->getReports();
+    $UserRepository_number_user = $UserRepository->getNumberUser();
+    $UserRepository_number_report = $Raports->getNumberReports();
+?>
 
-<main class="ml-64 pt-28 px-10">
+<?php include __DIR__ . '/../layouts/header.php'; ?>
+
+<main class=" pt-28 px-10">
 
   <!-- Header -->
   <div class="flex justify-between items-center">
@@ -14,19 +25,15 @@
 
     <div class="p-6 rounded-xl bg-black border border-white/10">
       <p class="text-gray-400 text-sm">Total Users</p>
-      <h2 class="text-3xl font-bold mt-2">1,248</h2>
+      <h2 class="text-3xl font-bold mt-2"><?= $UserRepository_number_user ?></</h2>
       <span class="text-green-500 text-sm">+12%</span>
     </div>
 
-    <div class="p-6 rounded-xl bg-black border border-white/10">
-      <p class="text-gray-400 text-sm">Active Labs</p>
-      <h2 class="text-3xl font-bold mt-2">32</h2>
-      <span class="text-green-500 text-sm">+8%</span>
-    </div>
+    
 
     <div class="p-6 rounded-xl bg-black border border-white/10">
       <p class="text-gray-400 text-sm">Reports</p>
-      <h2 class="text-3xl font-bold mt-2">418</h2>
+      <h2 class="text-3xl font-bold mt-2"><?= $UserRepository_number_report ?></h2>
       <span class="text-yellow-400 text-sm">Pending</span>
     </div>
 
@@ -67,32 +74,23 @@
         <tr>
           <th class="py-3 text-left">User</th>
           <th class="py-3 text-left">Lab</th>
-          <th class="py-3 text-left">Severity</th>
-          <th class="py-3 text-left">Status</th>
-          <th class="py-3 text-left">Action</th>
+          <th class="py-3 text-left">Email</th>
+          <th class="py-3 text-left">Description</th>
         </tr>
       </thead>
       <tbody>
-
+        <?php  foreach($result_reports AS $value): ?>
         <tr class="border-b border-white/5">
-          <td class="py-4">hacker01</td>
-          <td>SQL Injection</td>
-          <td><span class="text-red-500">Critical</span></td>
-          <td><span class="text-yellow-400">Pending</span></td>
+          <td class="py-4"><?= $value['tester_name'] ?></td>
+          <td><?= $value['report_issue'] ?></td>
+          <td><span class="text-red-500"><?= $value['tester_email'] ?></span></td>
+          <td><span class="text-yellow-400"><?= $value['report_description'] ?></span></td>
           <td>
             <button class="px-3 py-1 bg-primary rounded text-xs">Review</button>
           </td>
         </tr>
+        <?php endforeach; ?>
 
-        <tr class="border-b border-white/5">
-          <td class="py-4">hacker02</td>
-          <td>XSS</td>
-          <td><span class="text-orange-400">High</span></td>
-          <td><span class="text-green-500">Approved</span></td>
-          <td>
-            <button class="px-3 py-1 bg-white/10 rounded text-xs">View</button>
-          </td>
-        </tr>
 
       </tbody>
     </table>

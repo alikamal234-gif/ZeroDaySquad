@@ -1,3 +1,19 @@
+<?php
+require_once __DIR__ . '/../../app/Repository/BaseModels.php';
+require_once __DIR__ . '/../../app/Repository/UserRepository.php';
+require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
+require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
+    $ProjectRepository = new ProjectRepository();
+    $RaportsRepository = new RaportsRepository();
+    
+
+    $result_project_number= $ProjectRepository->getNumberProject();
+    $result_report_number= $RaportsRepository->getNumberReportById(2);
+    $result_project = $ProjectRepository->getProjectById(2);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,15 +53,11 @@
 <section class="grid md:grid-cols-4 gap-6">
   <div class="p-6 bg-black border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Websites</p>
-    <h2 class="text-3xl font-bold">3</h2>
+    <h2 class="text-3xl font-bold"><?= $result_project_number ?></h2>
   </div>
   <div class="p-6 bg-black border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Reports</p>
-    <h2 class="text-3xl font-bold">21</h2>
-  </div>
-  <div class="p-6 bg-black border border-white/10 rounded-xl">
-    <p class="text-gray-400 text-sm">Critical Issues</p>
-    <h2 class="text-3xl font-bold text-red-500">4</h2>
+    <h2 class="text-3xl font-bold text-red-500"><?= $result_report_number ?></h2>
   </div>
   <div class="p-6 bg-black border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Budget Left</p>
@@ -104,9 +116,9 @@
       </tr>
     </thead>
     <tbody>
-
+        <?php  foreach($result_project AS $value): ?>
       <tr class="border-b border-white/5">
-        <td class="py-4">example.com</td>
+        <td class="py-4"><?= $value['address'] ?></td>
         <td>$100 – $500</td>
         <td class="text-green-500">Active</td>
         <td class="space-x-2">
@@ -114,6 +126,7 @@
           <button class="text-red-500">Delete</button>
         </td>
       </tr>
+      <?php endforeach; ?>
 
     </tbody>
   </table>

@@ -21,17 +21,18 @@
 <body class="bg-dark text-white">
 
 <header class="border-b border-white/10 bg-black">
-  <div class="max-w-7xl mx-auto px-6 py-4">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
     <a href="index.php" class="text-primary text-sm">← Back to sites</a>
+    <span class="text-sm text-gray-400">Live Testing Environment</span>
   </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-6 py-10">
+<main class="max-w-7xl mx-auto px-6 py-6">
 
   <h1 class="text-2xl font-bold mb-6">Testing: example.com</h1>
 
   <!-- TABS -->
-  <div class="flex gap-6 border-b border-white/10 mb-8">
+  <div class="flex gap-6 border-b border-white/10 mb-6">
     <button onclick="openTab('overview')" class="tab-btn text-primary pb-3">
       Overview
     </button>
@@ -48,33 +49,63 @@
 
   <!-- OVERVIEW -->
   <div id="overview" class="tab-content">
-    <p class="text-gray-400">
-      Target website authorized for security testing.  
-      Please respect the scope and responsible disclosure rules.
+    <p class="text-gray-400 max-w-3xl">
+      This target is authorized for ethical security testing.
+      Respect the defined scope and responsible disclosure rules.
     </p>
   </div>
+
+  <a href="start_lab.php">▶️ Start Lab</a><br><br>
+<a href="stop_lab.php">⏹️ Stop Lab</a><br><br>
+<a href="reset_lab.php">🔄 Reset Lab</a>
 
   <!-- SCOPE -->
   <div id="scope" class="tab-content hidden">
     <ul class="text-gray-400 list-disc pl-6">
       <li>Allowed domain: example.com</li>
       <li>Allowed paths: /api/*</li>
+      <li>Allowed: XSS, SQLi, IDOR</li>
       <li>Forbidden: DoS, brute force</li>
     </ul>
   </div>
 
-  <!-- TEST -->
-  <div id="test" class="tab-content hidden">
-    <div class="bg-black border border-white/10 rounded-xl p-6">
-      <p class="text-sm text-gray-400 mb-2">Target URL</p>
-      <div class="bg-black/60 p-4 rounded text-sm">
-        https://example.com
+  <!-- TEST LAB (SPLIT VIEW) -->
+  <div id="test" class="tab-content ">
+
+    <div class="grid grid-cols-2 gap-4 h-[70vh]">
+
+      <!-- LEFT : LAB / TOOLS -->
+      <div class="bg-black border border-white/10 rounded-xl overflow-hidden flex flex-col">
+        <div class="px-4 py-2 border-b border-white/10 text-sm text-gray-400">
+          🧪 Lab Environment
+        </div>
+
+        <iframe
+  src="http://localhost:7681"
+  class="w-full h-full border"
+  sandbox="allow-scripts allow-forms allow-same-origin">
+</iframe>
       </div>
 
-      <p class="text-gray-400 mt-4">
-        Use your browser, Burp Suite, or Postman to test vulnerabilities.
-      </p>
+      <!-- RIGHT : TARGET WEBSITE -->
+      <div class="bg-black border border-white/10 rounded-xl overflow-hidden flex flex-col">
+        <div class="px-4 py-2 border-b border-white/10 text-sm text-gray-400">
+          🌐 Target Website
+        </div>
+
+        <iframe
+          src="https://juice-shop.herokuapp.com"
+          class="w-full h-full bg-white"
+          sandbox="allow-scripts allow-forms allow-same-origin">
+        </iframe>
+      </div>
+
     </div>
+
+    <p class="text-xs text-gray-500 mt-4">
+      ⚠️ Testing is monitored. Only interact with allowed assets.
+    </p>
+
   </div>
 
   <!-- REPORT -->
@@ -92,9 +123,9 @@
       </select>
 
       <textarea placeholder="Description / Steps to reproduce"
-        class="w-full bg-dark border border-white/10 rounded p-3"></textarea>
+        class="w-full bg-dark border border-white/10 rounded p-3 h-32"></textarea>
 
-      <button class="px-6 py-3 bg-primary rounded">
+      <button class="px-6 py-3 bg-primary rounded hover:bg-blue-700 transition">
         Submit Report
       </button>
 

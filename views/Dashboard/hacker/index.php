@@ -131,7 +131,7 @@
       <div class="flex justify-between items-center pt-4 border-t border-white/10">
         <a href="lab.php?site=1"
            class="px-5 py-2 bg-primary rounded hover:bg-blue-700 transition">
-          🚀 Try Hack
+          Start testing
         </a>
         <a href="#" class="text-sm text-gray-400 hover:text-white">
           View details →
@@ -188,7 +188,7 @@
       <div class="flex justify-between items-center pt-4 border-t border-white/10">
         <a href="lab.php?site=1"
            class="px-5 py-2 bg-primary rounded hover:bg-blue-700 transition">
-          🚀 Try Hack
+          Start testing
         </a>
         <a href="#" class="text-sm text-gray-400 hover:text-white">
           View details →
