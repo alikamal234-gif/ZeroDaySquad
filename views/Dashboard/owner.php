@@ -111,7 +111,7 @@ require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
       <tr>
         <th class="text-left py-3">Site</th>
         <th>Reward</th>
-        <th>Status</th>
+        <th>Description</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -119,8 +119,8 @@ require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
         <?php  foreach($result_project AS $value): ?>
       <tr class="border-b border-white/5">
         <td class="py-4"><?= $value['address'] ?></td>
-        <td>$100 – $500</td>
-        <td class="text-green-500">Active</td>
+        <td><?= $value['price'] . " $" ?></td>
+        <td class="text-white"><?= $value['description'] ?></td>
         <td class="space-x-2">
           <button class="text-primary">Edit</button>
           <button class="text-red-500">Delete</button>
