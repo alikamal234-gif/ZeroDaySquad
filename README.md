@@ -132,7 +132,3 @@ Ce projet est sous licence **MIT**.
 
 **ZeroDay Squad**
 Plateforme éducative & sécurisée pour le hacking éthique.
-
-- ولا نضيف **badges GitHub**  
-
-قولي وبنعدّلو مباشر
