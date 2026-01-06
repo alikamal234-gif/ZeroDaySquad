@@ -13,9 +13,9 @@ if($_SESSION['role_login'] !== 'owner'){
     $BaseModels = new BaseModels();
 
     $result_project_number= $ProjectRepository->getNumberProject();
-    $result_report_number= $RaportsRepository->getNumberReportById(2);
-    $result_project = $ProjectRepository->getProjectById(2);
-    $result_report = $BaseModels->getReportsOwner(2);
+    $result_report_number= $RaportsRepository->getNumberReportById($_SESSION['id_login']);
+    $result_project = $ProjectRepository->getProjectById($_SESSION['id_login']);
+    $result_report = $BaseModels->getReportsOwner($_SESSION['id_login']);
 
 ?>
 
@@ -137,8 +137,12 @@ if($_SESSION['role_login'] !== 'owner'){
         <td class="py-4 text-center"><?= $value['tester_name'] ?></td>
         <td class="text-center"><?= $value['tester_email'] ?></td>
         <td class="text-center"><?= $value['report_issue'] ?></td>
-        <td class="text-blue-500 text-center">Send Message</td>
-        
+<td class="text-center">
+    <a href="mailto:<?= $value['tester_email'] ?>"
+       class="text-blue-500 hover:underline">
+      Contact
+    </a>
+  </td>        
       </tr>
         <?php endforeach; ?>
     </tbody>

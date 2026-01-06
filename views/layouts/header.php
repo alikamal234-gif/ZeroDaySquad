@@ -38,7 +38,7 @@
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="vews/home/index.php" class="hover:text-primary transition">Home</a>
       <a href="#labs" class="hover:text-primary transition">Labs</a>
-      <a href="#security" class="hover:text-primary transition">Security</a>
+      <a href="../learn/index.php" class="hover:text-primary transition">Learning</a>
       <a href="#contact" class="hover:text-primary transition">Contact</a>
     </nav>
 
