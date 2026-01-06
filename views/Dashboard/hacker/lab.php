@@ -75,13 +75,52 @@ if(isset($_GET['id'])){
 
   <!-- SCOPE -->
   <div id="scope" class="tab-content hidden">
-    <ul class="text-gray-400 list-disc pl-6">
-      <li>Allowed domain: example.com</li>
-      <li>Allowed paths: /api/*</li>
-      <li>Allowed: XSS, SQLi, IDOR</li>
-      <li>Forbidden: DoS, brute force</li>
-    </ul>
+  <div class="bg-card border border-border rounded-xl p-6 space-y-6">
+
+    <!-- Allowed Domains -->
+    <div>
+      <h3 class="text-primary font-semibold mb-2">Allowed Domains</h3>
+      <ul class="text-muted list-disc pl-6 space-y-1">
+        <li>example.com</li>
+        <li>*.example.com</li>
+        <li>api.example.com</li>
+      </ul>
+    </div>
+
+    <!-- Allowed Paths -->
+    <div>
+      <h3 class="text-primary font-semibold mb-2">Allowed Paths</h3>
+      <ul class="text-muted list-disc pl-6 space-y-1">
+        <li>/api/*</li>
+        <li>/auth/*</li>
+        <li>/user/*</li>
+      </ul>
+    </div>
+
+    <!-- Allowed Vulnerabilities -->
+    <div>
+      <h3 class="text-primary font-semibold mb-2">Allowed Vulnerabilities</h3>
+      <ul class="text-muted list-disc pl-6 space-y-1">
+        <li>Cross-Site Scripting (XSS)</li>
+        <li>SQL Injection (SQLi)</li>
+        <li>Insecure Direct Object Reference (IDOR)</li>
+        <li>Cross-Site Request Forgery (CSRF)</li>
+      </ul>
+    </div>
+
+    <!-- Forbidden -->
+    <div>
+      <h3 class="text-red-400 font-semibold mb-2">Forbidden Activities</h3>
+      <ul class="text-muted list-disc pl-6 space-y-1">
+        <li>Denial of Service (DoS / DDoS)</li>
+        <li>Brute force attacks</li>
+        <li>Credential stuffing</li>
+        <li>Phishing & social engineering</li>
+      </ul>
+    </div>
+
   </div>
+</div>
 
   <!-- TEST LAB (SPLIT VIEW) -->
   <div id="test" class="tab-content ">

@@ -39,17 +39,18 @@ $result_project = $ProjectRepository->getAllProject();
     <!-- Left -->
     <div class="flex items-center gap-6">
       <h1 class="text-xl font-bold text-primary">
-        ZeroDay<span class="text-white">Labs</span>
+        <a href="../../home/index.php">← ZeroDay<span class="text-white">Labs</span></a>
       </h1>
 
       <!-- Tabs -->
-      <nav class="flex gap-4 text-sm">
-          <a href="../../home/index.php" class="text-gray-400 hover:text-white">
-            ←  Back to Home
-          </a>
+      <nav class="flex  gap-4 text-sm">
+       
         <span class="text-primary font-semibold border-b-2 border-primary pb-1">
-          Try hack
+          Project
         </span>
+        <a href="../../learn/index.php" class="text-white font-semibold border-b-2 border-white pb-1">
+          Education
+        </a>
       </nav>
     </div>
 

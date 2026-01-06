@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../../app/Repository/BaseModels.php';
 require_once __DIR__ . '/../../app/Repository/UserRepository.php';
 require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';

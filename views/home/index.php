@@ -30,7 +30,7 @@
     <!-- Right -->
     <div data-aos="fade-left" class="relative">
       <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
-      <div class="relative bg-dark border border-white/10 rounded-xl p-6 shadow-xl">
+      <div class="relative bg-dark border border-white/10 rounded-xl p-6 shadow-xl shadow-blue-800">
         <p class="text-sm text-gray-400">Example Vulnerability</p>
         <h3 class="mt-2 font-semibold text-primary">SQL Injection</h3>
         <pre class="mt-4 bg-black/60 p-4 rounded text-sm overflow-auto">

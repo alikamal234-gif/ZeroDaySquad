@@ -145,7 +145,7 @@
   <p class="text-gray-400 mb-6">
     Apply your knowledge on real bug bounty programs.
   </p>
-  <a href="/hacker/index.php"
+  <a href="../Dashboard/hacker/index.php"
      class="px-8 py-3 bg-primary rounded hover:bg-blue-700 transition">
     Go to Programs
   </a>

@@ -32,9 +32,9 @@ if($_SESSION['role_login'] !== 'owner'){
         extend: {
           colors: {
             primary: '#2563EB',
-            dark: '#020617',
-            bg: '#112448ff',
-          card: '#0f172a',
+            dark: '#1d0a40ff',
+            bg: '#10022aff',
+          card: '#220c4cff',
           border: '#1e293b',
           primary: '#60a5fa',
           accent: '#38bdf8',
@@ -52,7 +52,7 @@ if($_SESSION['role_login'] !== 'owner'){
 <body class="bg-bg text-white">
 
 <!-- HEADER -->
-<header class="border-b border-white/10 bg-black">
+<header class="border-b border-white/10 bg-transparent py-2">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a class="text-xl font-bold text-primary" href="../home/index.php">
       ZeroDay<span class="text-white">Labs</span>
@@ -71,7 +71,7 @@ if($_SESSION['role_login'] !== 'owner'){
   </div>
   <div class="p-6 bg-dark border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Reports</p>
-    <h2 class="text-3xl font-bold text-red-500"><?= $result_report_number ?></h2>
+    <h2 class="text-3xl font-bold "><?= $result_report_number ?></h2>
   </div>
   <div class="p-6 bg-dark border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Budget Left</p>
@@ -89,7 +89,7 @@ if($_SESSION['role_login'] !== 'owner'){
 
 
 <!-- WEBSITES LIST -->
-<section class="bg-black border border-white/4 rounded-xl p-8">
+<section class="bg-dark border border-white/10 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6"> My Websites</h2>
 
   <table class="w-full text-sm">
@@ -108,8 +108,8 @@ if($_SESSION['role_login'] !== 'owner'){
         <td class="text-center"><?= $value['price'] . " $" ?></td>
         <td class="text-white text-center"><?= $value['description'] ?></td>
         <td class="space-x-2 text-center">
-          <button class="text-black bg-yellow-500 p-1 rounded-[11px] w-10 font-bold">Edit</button>
-          <button class="text-black bg-red-600 p-1 rounded-[11px] w-20 font-bold">Delete</button>
+          <button class="text-yellow-500  p-1 rounded-[11px] w-10">Edit</button>
+          <button class="text-red-500  p-1 rounded-[11px] w-20">Delete</button>
         </td>
       </tr>
       <?php endforeach; ?>
@@ -119,7 +119,7 @@ if($_SESSION['role_login'] !== 'owner'){
 </section>
 
 <!-- HACKER REPORTS -->
-<section class="bg-black border border-white/4 rounded-xl p-8">
+<section class="bg-dark border border-white/10 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6">Hacker Reports</h2>
 
   <table class="w-full text-sm">
