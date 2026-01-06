@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__ . "/../../app/Repository/UserRepository.php";
+$UserRepository = new UserRepository();
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $UserRepository->ValidationLogin($email,$password);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +46,12 @@
   </div>
 
   <!-- Form -->
-  <form class="space-y-5">
+  <form class="space-y-5" method="post">
 
-    <input type="email" placeholder="Email address"
+    <input type="email" placeholder="Email address" name="email"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
 
-    <input type="password" placeholder="Password"
+    <input type="password" placeholder="Password" name="password"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
 
     <div class="flex justify-between text-sm text-gray-400">

@@ -3,6 +3,11 @@ require_once __DIR__ . '/../../app/Repository/BaseModels.php';
 require_once __DIR__ . '/../../app/Repository/UserRepository.php';
 require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
 require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
+
+if($_SESSION['role_login'] !== 'owner'){
+    header('Location: ../auth/login.php');
+    exit;
+}
     $ProjectRepository = new ProjectRepository();
     $RaportsRepository = new RaportsRepository();
     $BaseModels = new BaseModels();
@@ -51,15 +56,15 @@ require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
 
 <!-- STATS -->
 <section class="grid md:grid-cols-4 gap-6">
-  <div class="p-6 bg-black border border-white/10 rounded-xl">
+  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Websites</p>
     <h2 class="text-3xl font-bold"><?= $result_project_number ?></h2>
   </div>
-  <div class="p-6 bg-black border border-white/10 rounded-xl">
+  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Reports</p>
     <h2 class="text-3xl font-bold text-red-500"><?= $result_report_number ?></h2>
   </div>
-  <div class="p-6 bg-black border border-white/10 rounded-xl">
+  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Budget Left</p>
     <h2 class="text-3xl font-bold">$2,400</h2>
   </div>

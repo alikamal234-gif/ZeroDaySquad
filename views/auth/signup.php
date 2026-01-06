@@ -1,3 +1,23 @@
+<?php
+require_once __DIR__ . "/../../app/Repository/UserRepository.php";
+$UserRepository = new UserRepository();
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_POST['password'] !== $_POST['password_confirm']){
+        echo "your password ne egaux";
+        return;
+    }
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $data = [
+        "name" => $_POST['name'],
+        "email" => $_POST['email'],
+        "password" => $password,
+        "role" => $_POST['role']
+    ];
+    $UserRepository->transformeCV($data);
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,25 +54,24 @@
   </div>
 
   <!-- Form -->
-  <form class="space-y-5">
+  <form class="space-y-5" method="post">
 
-    <input type="text" placeholder="Full name"
+    <input name="name" type="text" placeholder="Full name"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:ring-2 focus:ring-primary">
 
-    <input type="email" placeholder="Email address"
+    <input name="email" type="email" placeholder="Email address"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:ring-2 focus:ring-primary">
 
-    <input type="password" placeholder="Password"
+    <input name="password" type="password" placeholder="Password"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:ring-2 focus:ring-primary">
 
-    <input type="password" placeholder="Confirm password"
+    <input name="password_confirm" type="password" placeholder="Confirm password"
       class="w-full bg-dark border border-white/10 rounded px-4 py-3 focus:ring-2 focus:ring-primary">
 
     <!-- Role -->
-    <select class="w-full bg-dark border border-white/10 rounded px-4 py-3">
-      <option>Select role</option>
-      <option>Hacker (Étudiant)</option>
-      <option>Company (Owner)</option>
+    <select name="role" class="w-full bg-dark border border-white/10 rounded px-4 py-3">
+      <option value="tester">Tester (Étudiant)</option>
+      <option value="owner">Company (Owner)</option>
     </select>
 
     <!-- Terms -->
@@ -62,7 +81,7 @@
       <a href="#" class="text-primary">Terms & Conditions</a>
     </label>
 
-    <button class="w-full py-3 bg-primary rounded hover:bg-blue-700 transition">
+    <button type="submit" class="w-full py-3 bg-primary rounded hover:bg-blue-700 transition">
       Create Account
     </button>
 

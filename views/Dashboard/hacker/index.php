@@ -1,6 +1,10 @@
 <?php
+session_start();
 require_once __DIR__ . "/../../../app/Repository/ProjectRepository.php";
-
+if($_SESSION['role_login'] !== 'tester'){
+    header('Location: ../../auth/login.php');
+    exit;
+}
 $ProjectRepository = new ProjectRepository();
 $result_project = $ProjectRepository->getAllProject();
 ?>

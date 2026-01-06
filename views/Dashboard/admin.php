@@ -1,7 +1,12 @@
 <?php
+session_start();
 require_once __DIR__ . '/../../app/Repository/BaseModels.php';
 require_once __DIR__ . '/../../app/Repository/UserRepository.php';
 require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
+if($_SESSION['role_login'] !== 'admin'){
+    header('Location: ../auth/login.php');
+    exit;
+}
     $BaseModels = new BaseModels();
     $UserRepository = new UserRepository();
     $Raports = new RaportsRepository();
