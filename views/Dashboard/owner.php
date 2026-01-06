@@ -32,22 +32,31 @@ if($_SESSION['role_login'] !== 'owner'){
         extend: {
           colors: {
             primary: '#2563EB',
-            dark: '#020617'
+            dark: '#020617',
+            bg: '#112448ff',
+          card: '#0f172a',
+          border: '#1e293b',
+          primary: '#60a5fa',
+          accent: '#38bdf8',
+          text: '#e5e7eb',
+          muted: '#94a3b8'
           }
         }
       }
     }
+ 
+
   </script>
 </head>
 
-<body class="bg-dark text-white">
+<body class="bg-bg text-white">
 
 <!-- HEADER -->
 <header class="border-b border-white/10 bg-black">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-primary">
+    <a class="text-xl font-bold text-primary" href="../home/index.php">
       ZeroDay<span class="text-white">Labs</span>
-    </h1>
+    </a>
     <span class="text-sm text-gray-400">Company Dashboard</span>
   </div>
 </header>
@@ -55,80 +64,52 @@ if($_SESSION['role_login'] !== 'owner'){
 <main class="max-w-7xl mx-auto px-6 py-10 space-y-16">
 
 <!-- STATS -->
-<section class="grid md:grid-cols-4 gap-6">
-  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
+<section class="grid md:grid-cols-3 gap-6">
+  <div class="p-6 bg-dark border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Websites</p>
     <h2 class="text-3xl font-bold"><?= $result_project_number ?></h2>
   </div>
-  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
+  <div class="p-6 bg-dark border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Reports</p>
     <h2 class="text-3xl font-bold text-red-500"><?= $result_report_number ?></h2>
   </div>
-  <div class="p-6 bg-blue-900 border border-white/10 rounded-xl">
+  <div class="p-6 bg-dark border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Budget Left</p>
     <h2 class="text-3xl font-bold">$2,400</h2>
   </div>
 </section>
 
-<!-- ADD WEBSITE -->
-<section class="bg-black border border-white/10 rounded-xl p-8">
-  <h2 class="text-2xl font-bold mb-6">+ Add Website</h2>
-
-  <form class="grid md:grid-cols-2 gap-6">
-
-    <input type="text" placeholder="Website Name"
-      class="bg-dark border border-white/10 rounded p-3">
-
-    <input type="url" placeholder="Website URL"
-      class="bg-dark border border-white/10 rounded p-3">
-
-    <input type="file"
-      class="text-sm text-gray-400">
-
-    <div class="flex gap-4">
-      <input type="number" placeholder="Min Reward"
-        class="bg-dark border border-white/10 rounded p-3 w-full">
-      <input type="number" placeholder="Max Reward"
-        class="bg-dark border border-white/10 rounded p-3 w-full">
-    </div>
-
-    <textarea placeholder="Website Description"
-      class="md:col-span-2 bg-dark border border-white/10 rounded p-3"></textarea>
-
-    <label class="flex items-center gap-2 text-sm md:col-span-2">
-      <input type="checkbox">
-      Private program (optional)
-    </label>
-
-    <button class="md:col-span-2 px-6 py-3 bg-primary rounded hover:bg-blue-700 transition">
-      Save Website
-    </button>
-
-  </form>
+<!-- ADD WEBSITE BUTTON -->
+<section class="flex justify-end">
+  <button onclick="openModal()"
+    class="px-6 py-3 bg-blue-700 text-white font-bold rounded-lg hover:bg-accent transition">
+    + Add Website
+  </button>
 </section>
 
+
 <!-- WEBSITES LIST -->
-<section class="bg-black border border-white/10 rounded-xl p-8">
+<section class="bg-black border border-white/4 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6"> My Websites</h2>
 
   <table class="w-full text-sm">
-    <thead class="text-gray-400 border-b border-white/10">
+    <thead class="text-gray-400 border-b border-white/3">
       <tr>
-        <th class="text-left py-3">Site</th>
-        <th>Reward</th>
-        <th>Description</th>
-        <th>Action</th>
+        <th class="text-center py-3">Site</th>
+        <th class="text-center">Reward</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Action</th>
       </tr>
     </thead>
     <tbody>
         <?php  foreach($result_project AS $value): ?>
       <tr class="border-b border-white/5">
-        <td class="py-4"><?= $value['address'] ?></td>
-        <td><?= $value['price'] . " $" ?></td>
-        <td class="text-white"><?= $value['description'] ?></td>
-        <td class="space-x-2">
-          <button class="text-primary">Edit</button>
-          <button class="text-red-500">Delete</button>
+        <td class="py-4 text-center"><?= $value['address'] ?></td>
+        <td class="text-center"><?= $value['price'] . " $" ?></td>
+        <td class="text-white text-center"><?= $value['description'] ?></td>
+        <td class="space-x-2 text-center">
+          <button class="text-black bg-yellow-500 p-1 rounded-[11px] w-10 font-bold">Edit</button>
+          <button class="text-black bg-red-600 p-1 rounded-[11px] w-20 font-bold">Delete</button>
         </td>
       </tr>
       <?php endforeach; ?>
@@ -138,27 +119,26 @@ if($_SESSION['role_login'] !== 'owner'){
 </section>
 
 <!-- HACKER REPORTS -->
-<section class="bg-black border border-white/10 rounded-xl p-8">
+<section class="bg-black border border-white/4 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6">Hacker Reports</h2>
 
   <table class="w-full text-sm">
-    <thead class="text-gray-400 border-b border-white/10">
+    <thead class="text-gray-400 border-b border-white/4">
       <tr>
-        <th class="text-left py-3">Hacker</th>
-        <th>Site</th>
-        <th>Issue</th>
-        <th>Severity</th>
-        <th>Status</th>
+        <th class="text-center py-3">Tester name</th>
+        <th class="text-center">Site</th>
+        <th class="text-center">Issue</th>
+        <th class="text-center">Severity</th>
       </tr>
     </thead>
     <tbody>
         <?php  foreach($result_report AS $value): ?>
       <tr class="border-b border-white/5">
-        <td class="py-4"><?= $value['tester_name'] ?></td>
-        <td><?= $value['tester_email'] ?></td>
-        <td><?= $value['report_issue'] ?></td>
-        <td class="text-red-500">Critical</td>
-        <td class="text-yellow-400">Pending</td>
+        <td class="py-4 text-center"><?= $value['tester_name'] ?></td>
+        <td class="text-center"><?= $value['tester_email'] ?></td>
+        <td class="text-center"><?= $value['report_issue'] ?></td>
+        <td class="text-blue-500 text-center">Send Message</td>
+        
       </tr>
         <?php endforeach; ?>
     </tbody>
@@ -171,5 +151,64 @@ if($_SESSION['role_login'] !== 'owner'){
   © 2026 ZeroDay Squad
 </footer>
 
+
+<!-- ADD WEBSITE MODAL -->
+<div id="addWebsiteModal"
+     class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50">
+
+  <div class="bg-card border border-border rounded-xl w-full max-w-3xl p-8 relative">
+
+    <!-- CLOSE -->
+    <button onclick="closeModal()"
+      class="absolute top-4 right-4 text-muted hover:text-white text-xl">
+      ✕
+    </button>
+
+    <h2 class="text-2xl font-bold mb-6 text-primary">
+      Add Website
+    </h2>
+
+    <!-- SAME FORM (UNCHANGED) -->
+    <form class="grid md:grid-cols-2 gap-6">
+
+      <input type="text" placeholder="Website Name"
+        class="bg-bg border border-border rounded-lg p-3 text-text">
+
+      <input type="url" placeholder="Website URL"
+        class="bg-bg border border-border rounded-lg p-3 text-text">
+
+      <input type="url" class="text-sm text-muted bg-bg border border-border rounded-lg p-3 text-text" placeholder="Cover URL">
+
+      <div class="flex gap-4">
+        <input type="number" placeholder="Reward ($)"
+          class="bg-bg border border-border rounded-lg p-3 w-full text-text">
+      </div>
+
+      <textarea placeholder="Website Description"
+        class="md:col-span-2 bg-bg border border-border rounded-lg p-3 text-text"></textarea>
+
+     
+
+      <button
+        class="md:col-span-2 bg-primary hover:bg-accent transition rounded-lg py-3 text-bg">
+        Save Website
+      </button>
+
+    </form>
+  </div>
+</div>
+
 </body>
+<script>
+  function openModal() {
+    document.getElementById('addWebsiteModal').classList.remove('hidden');
+    document.getElementById('addWebsiteModal').classList.add('flex');
+  }
+
+  function closeModal() {
+    document.getElementById('addWebsiteModal').classList.add('hidden');
+    document.getElementById('addWebsiteModal').classList.remove('flex');
+  }
+</script>
+
 </html>

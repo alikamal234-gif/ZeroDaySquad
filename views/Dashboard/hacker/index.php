@@ -44,8 +44,8 @@ $result_project = $ProjectRepository->getAllProject();
 
       <!-- Tabs -->
       <nav class="flex gap-4 text-sm">
-          <a href="/index.php" class="text-gray-400 hover:text-white">
-            <-- Back to Index
+          <a href="../../home/index.php" class="text-gray-400 hover:text-white">
+            ←  Back to Home
           </a>
         <span class="text-primary font-semibold border-b-2 border-primary pb-1">
           Try hack

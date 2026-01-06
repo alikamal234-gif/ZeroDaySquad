@@ -16,7 +16,7 @@
       </p>
 
       <div class="mt-8 flex gap-4">
-        <a href="../auth/signup.php"
+        <a href="switch.php"
            class="px-6 py-3 bg-primary rounded text-lg hover:bg-blue-700 transition">
           Get Started
         </a>

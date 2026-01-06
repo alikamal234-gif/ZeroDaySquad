@@ -69,9 +69,9 @@ if(isset($_GET['id'])){
     </p>
   </div>
 
-  <a href="start_lab.php">▶️ Start Lab</a><br><br>
+  <!-- <a href="start_lab.php">▶️ Start Lab</a><br><br>
 <a href="stop_lab.php">⏹️ Stop Lab</a><br><br>
-<a href="reset_lab.php">🔄 Reset Lab</a>
+<a href="reset_lab.php">🔄 Reset Lab</a> -->
 
   <!-- SCOPE -->
   <div id="scope" class="tab-content hidden">
