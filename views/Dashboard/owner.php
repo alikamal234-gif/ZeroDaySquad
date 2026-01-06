@@ -118,7 +118,7 @@ if($_SESSION['role_login'] !== 'owner'){
 
 <!-- HACKER REPORTS -->
 <section class="bg-bg border border-white/10 rounded-xl p-8">
-  <h2 class="text-2xl font-bold mb-6">Hacker Reports</h2>
+  <h2 class="text-2xl font-bold mb-6">Tester Reports</h2>
 
   <table class="w-full text-sm">
     <thead class="text-gray-400 border-b border-white/4">
