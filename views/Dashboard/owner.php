@@ -3,7 +3,6 @@ require_once __DIR__ . '/../../app/Repository/BaseModels.php';
 require_once __DIR__ . '/../../app/Repository/UserRepository.php';
 require_once __DIR__ . '/../../app/Repository/RaportsRepository.php';
 require_once __DIR__ . '/../../app/Repository/ProjectRepository.php';
-
 if($_SESSION['role_login'] !== 'owner'){
     header('Location: ../auth/login.php');
     exit;
@@ -18,7 +17,6 @@ if($_SESSION['role_login'] !== 'owner'){
     $result_report = $BaseModels->getReportsOwner($_SESSION['id_login']);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +30,9 @@ if($_SESSION['role_login'] !== 'owner'){
         extend: {
           colors: {
             primary: '#2563EB',
-            dark: '#1d0a40ff',
-            bg: '#10022aff',
-          card: '#220c4cff',
+            dark: 'black',
+            bg: '#100527ff',
+          card: 'black',
           border: '#1e293b',
           primary: '#60a5fa',
           accent: '#38bdf8',
@@ -49,7 +47,7 @@ if($_SESSION['role_login'] !== 'owner'){
   </script>
 </head>
 
-<body class="bg-bg text-white">
+<body class="bg-dark  text-white">
 
 <!-- HEADER -->
 <header class="border-b border-white/10 bg-transparent py-2">
@@ -65,15 +63,15 @@ if($_SESSION['role_login'] !== 'owner'){
 
 <!-- STATS -->
 <section class="grid md:grid-cols-3 gap-6">
-  <div class="p-6 bg-dark border border-white/10 rounded-xl">
+  <div class="p-6 bg-bg border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Websites</p>
     <h2 class="text-3xl font-bold"><?= $result_project_number ?></h2>
   </div>
-  <div class="p-6 bg-dark border border-white/10 rounded-xl">
+  <div class="p-6 bg-bg border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Reports</p>
     <h2 class="text-3xl font-bold "><?= $result_report_number ?></h2>
   </div>
-  <div class="p-6 bg-dark border border-white/10 rounded-xl">
+  <div class="p-6 bg-bg border border-white/10 rounded-xl">
     <p class="text-gray-400 text-sm">Budget Left</p>
     <h2 class="text-3xl font-bold">$2,400</h2>
   </div>
@@ -89,7 +87,7 @@ if($_SESSION['role_login'] !== 'owner'){
 
 
 <!-- WEBSITES LIST -->
-<section class="bg-dark border border-white/10 rounded-xl p-8">
+<section class="bg-bg border border-white/10 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6"> My Websites</h2>
 
   <table class="w-full text-sm">
@@ -119,7 +117,7 @@ if($_SESSION['role_login'] !== 'owner'){
 </section>
 
 <!-- HACKER REPORTS -->
-<section class="bg-dark border border-white/10 rounded-xl p-8">
+<section class="bg-bg border border-white/10 rounded-xl p-8">
   <h2 class="text-2xl font-bold mb-6">Hacker Reports</h2>
 
   <table class="w-full text-sm">

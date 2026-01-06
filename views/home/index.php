@@ -1,4 +1,12 @@
-<?php include __DIR__ . '/../layouts/header.php'; ?>
+<?php 
+session_start();
+if(!isset($_SESSION['id_login'])){
+    include __DIR__ . '/../layouts/header.php';
+}else{
+    include __DIR__ . '/../layouts/header_login.php';
+} 
+
+?>
 
 <section class="min-h-screen flex items-center">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">

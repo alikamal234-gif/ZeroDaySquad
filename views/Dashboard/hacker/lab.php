@@ -3,9 +3,8 @@ require_once __DIR__ . "/../../../app/Repository/ProjectRepository.php";
 
 $ProjectRepository = new ProjectRepository();
 
-
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
+if(isset($_GET['site'])){
+    $id = $_GET['site'];
     $result_project = $ProjectRepository->getAllProjectById($id);
 }
 
