@@ -5,10 +5,10 @@ $LAB_IMAGE = "linux_lab";
 
 
 class Database {
-    private $host = "localhost";
-    private $user = "root";
-    private $password = "";
-    private $dbname = "zerodaytab";
+    private $host = "dock-hosting-db";
+    private $user = "u_4_7838c5";
+    private $password = "eb735ebbbc520db72cec6bad";
+    private $dbname = "db_4_ZeroDaySqu_7838c5";
     private $conn;
     private static $instance = null;
 

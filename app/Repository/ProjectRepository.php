@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "\BaseModels.php";
+require_once __DIR__ . "/BaseModels.php";
 
 class ProjectRepository extends BaseModels{
     public string $table = 'project';
