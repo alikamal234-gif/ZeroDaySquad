@@ -24,7 +24,7 @@ if(!isset($_SESSION['id_login'])){
       </p>
 
       <div class="mt-8 flex gap-4">
-        <a href="switch.php"
+        <a href="views/home/switch.php"
            class="px-6 py-3 bg-primary rounded text-lg hover:bg-blue-700 transition">
           Get Started
         </a>
@@ -87,4 +87,4 @@ SELECT * FROM users WHERE id = '1 OR 1=1';
   </div>
 </section>
 
-<?php include __DIR__ . '/../layouts/footer.php'; ?>
+<?php include __DIR__ . '/views/layouts/footer.php'; ?>

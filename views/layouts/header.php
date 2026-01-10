@@ -38,18 +38,18 @@
 
     <!-- Navigation -->
     <nav class="hidden md:flex gap-8 text-sm">
-      <a href="../home/index.php" class="hover:text-primary transition">Home</a>
+      <a href="views/home/index.php" class="hover:text-primary transition">Home</a>
       <a href="#labs" class="hover:text-primary transition">Labs</a>
-      <a href="../learn/index.php" class="hover:text-primary transition">Learning</a>
-      <a href="../home/contact.php" class="hover:text-primary transition">Contact</a>
+      <a href="views/learn/index.php" class="hover:text-primary transition">Learning</a>
+      <a href="views/home/contact.php" class="hover:text-primary transition">Contact</a>
     </nav>
 
     <!-- Auth Buttons -->
     <div class="flex gap-3">
-      <a href="../auth/login.php" class="px-4 py-2 border border-white/20 rounded hover:bg-white/10 transition">
+      <a href="views/auth/login.php" class="px-4 py-2 border border-white/20 rounded hover:bg-white/10 transition">
         Login
       </a>
-      <a href="../auth/signup.php" class="px-4 py-2 bg-primary rounded hover:bg-blue-700 transition">
+      <a href="views/auth/signup.php" class="px-4 py-2 bg-primary rounded hover:bg-blue-700 transition">
         Sign Up
       </a>
     </div>

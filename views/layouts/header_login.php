@@ -47,7 +47,7 @@
     <!-- Auth Buttons -->
     <div class="flex gap-3">
      
-      <a href="../auth/logout.php" class="px-4 py-2 bg-red-500 rounded hover:bg-red-700 transition">
+      <a href="views/auth/logout.php" class="px-4 py-2 bg-red-500 rounded hover:bg-red-700 transition">
         Logout
       </a>
     </div>
